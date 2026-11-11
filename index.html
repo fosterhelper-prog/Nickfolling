@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Herdlin Ai</title>
+<link rel="icon" type="image/png" href="T.png">
+<link rel="shortcut icon" type="image/png" href="T.png">
+<meta name="author" content="Herdlin Ai">
+<meta name="description" content="Herdlin Ai — official site.">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #fff;
+  }
+  #frame-wrap {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .loader {
+    position: fixed;
+    top: 50%; left: 50%;
+    width: 50px; height: 50px;
+    margin: -25px 0 0 -25px;
+    border: 5px solid #f3f3f3;
+    border-top-color: #2c5f2d;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .hidden { display: none !important; }
+  noscript { display: block; padding: 2rem; font-family: sans-serif; text-align: center; }
+</style>
+</head>
+<body>
+  <div class="loader" id="loader"></div>
+
+  <div id="frame-wrap">
+    <iframe
+      id="site"
+      src="https://h1khs917gvn1-d.space-z.ai/"
+      title="Herdlin Ai"
+      allow="fullscreen; clipboard-write; geolocation; camera; microphone"
+      referrerpolicy="strict-origin-when-cross-origin"
+      loading="eager"></iframe>
+  </div>
+
+  <noscript>
+    <p>Please enable JavaScript, or visit
+      <a href="https://h1khs917gvn1-d.space-z.ai/">h1khs917gvn1-d.space-z.ai</a> directly.
+    </p>
+  </noscript>
+
+<script>
+(function () {
+  var frame  = document.getElementById('site');
+  var loader = document.getElementById('loader');
+  var done   = false;
+
+  function reveal() {
+    if (done) return;
+    done = true;
+    loader.classList.add('hidden');
+  }
+
+  frame.addEventListener('load', reveal);
+
+  // Safety net: reveal after 8s even if the iframe never fires load
+  setTimeout(reveal, 8000);
+})();
+</script>
+</body>
+</html>
